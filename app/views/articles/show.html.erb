@@ -1,10 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @article %>
+<section class="p-4">
+  <h1 class="my-4 flex">
+    Article#<%= @article.id%>
+    <%= button_to "delete", @article, method: :delete, class: 'material-symbols-outlined  text-red-500 px-2' %>
 
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <%= link_to "Back to articles", articles_path %>
+  </h1>
+  <%= render @article %>
 
-  <%= button_to "Destroy this article", @article, method: :delete %>
-</div>
+  <div class="text-center text-sky-500 my-4 ">
+    <%= link_to "Edit this article", edit_article_path(@article) , class: 'underline underline-offset-4'%> |
+    <%= link_to "Back to articles", articles_path, class: 'underline underline-offset-4'%>
+  </div>
+</section>
