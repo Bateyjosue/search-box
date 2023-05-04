@@ -12,9 +12,11 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
+  <body class="box-border">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <main class="box-border">
+      <%= yield %>
+    </main>
   </body>
 </html>
