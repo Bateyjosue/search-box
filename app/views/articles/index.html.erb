@@ -1,0 +1,21 @@
+<section class="p-8 leading-4 gap-2">
+  <p style="color: green"><%= notice %></p>
+
+  <h1 class="text-3xl font-bold my-4">Articles</h1>
+
+  <div id="articles" class="lg:grid lg:grid-cols-2 gap-2">
+      <% @articles.each do |article| %>
+        <article class="leading-2 border p-2 rounded my-4  hover:shadow-lg hover:shadow-gray-500/60 ">
+          <%= render article %>
+          <p class="rounded-xl bg-white-500 p-2 my-2 w-24 border text-center text-gray-500">
+            <%= link_to "Show", article %>
+          </p>
+        </article>
+      <% end %>
+  </div>
+   <div class="divide-y my-4"><hr /></div>
+  <div class="">
+    <%= link_to "New Article", new_article_path, class: 'bg-sky-500 px-2 p-2 text-white rounded' %>
+  </div>
+
+</section>
