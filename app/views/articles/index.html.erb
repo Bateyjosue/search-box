@@ -2,7 +2,12 @@
   <p style="color: green"><%= notice %></p>
 
   <h1 class="text-3xl font-bold my-4 uppercase my-4 text-3xl text-gray-400">Articles</h1>
-
+  <div class="border ring-0 hover:ring-4 hover:ring-sky-100 hover:shadow-none hover:border-sky-500 hover:outline-none rounded-full px-3 flex items-center justify-center gap-2">
+  <%= form_with(url: articles_path, method: :get, data: { turbo_frame: 'articles'}) do |form| %>
+      <%= form.text_field :query, class: 'h-full py-2 outline-none px-2 text-gray-400' %>
+  <% end %>
+  <span class="material-symbols-outlined">search</span>
+  </div>
   <div id="articles" class="lg:grid lg:grid-cols-2 gap-2">
       <% @articles.each do |article| %>
         <article class="leading-2 border p-2 rounded my-4  hover:shadow-lg hover:shadow-gray-500/60 ">
