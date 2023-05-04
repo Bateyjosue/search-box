@@ -12,16 +12,16 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.label :title, style: "display: block", :class => "text-xs" %>
+    <%= form.text_field :title, :class => 'outline-0 pl-2 text-gray-400 border w-full my-2', placeholder: 'article title' %>
   </div>
 
   <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+    <%= form.label :content, style: "display: block", :class => "text-xs" %>
+    <%= form.text_area :content, :class => 'outline-0 pl-2 text-gray-400 border w-full my-2', placeholder: 'article content' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="bg-sky-500 rounded my-4 px-2 text-white text-center">
+    <%= form.submit%>
   </div>
 <% end %>

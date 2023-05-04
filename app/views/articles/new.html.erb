@@ -1,9 +1,8 @@
-<h1>New article</h1>
+<section class="new__article p-8 leading-10">
+  <h1 class="my-4 text-3xl text-gray-400 uppercase">New article</h1>
 
-<%= render "form", article: @article %>
-
-<br>
-
-<div>
-  <%= link_to "Back to articles", articles_path %>
-</div>
+  <%= render "form", article: @article %>
+  <div >
+    <%= link_to "Back to articles", articles_path, class: 'underline underline-offset-4 text-sky-500' %>
+  </div>
+</section>
