@@ -9,7 +9,7 @@ services:
   - type: web
     name: search
     env: ruby
-    buildCommand: "./render-build.sh"
+    buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rails s"
     plan: free
     envVars:
