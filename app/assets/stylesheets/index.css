@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --bg-color: #3778c2;
+  --bg-color-secondary: #5fb523;
+  --font-color: #434b54;
+}
+
+.popup-notication {
+  width: 100%;
+  height: 80%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.popup-notication div {
+  background: rgb(255, 255, 255);
+  color: var(--font-color);
+  width: 70%;
+  height: 35%;
+  position: absolute;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: rgba(76, 76, 76, 0.387) solid 1px;
+}
+
+.popup-notication p {
+  color: var(--font-color);
+  text-align: center;
+}
+
+.popup-content-notice span {
+  font-size: 4rem;
+  color: var(--bg-color-secondary);
+}
+
+.popup-content-alert span {
+  font-size: 4rem;
+  color: var(--bg-color);
+}
