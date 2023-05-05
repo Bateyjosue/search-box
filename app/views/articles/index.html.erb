@@ -2,7 +2,7 @@
   <p style="color: green"><%= notice %></p>
 
   <h1 class="text-3xl font-bold my-4 uppercase my-4 text-3xl text-gray-400">Articles</h1>
-  <div class="border ring-0 hover:ring-4 hover:ring-sky-100 hover:shadow-none hover:border-sky-500 hover:outline-none rounded-full px-3 flex items-center justify-center gap-2 lg:w-1/4">
+  <div class="border ring-0 hover:ring-4 hover:ring-sky-100 hover:shadow-none hover:border-sky-500 hover:outline-none rounded-full  flex items-center justify-center gap-2 w-full sm:w-80  md:w-64 lg:w-96  overflow-hidden pr-2">
   <%= form_with(
     url: articles_path, 
     method: :get, 
@@ -11,7 +11,7 @@
       turbo_frame: 'articles',
       turbo_action: "advance"}) do |form| %>
       <%= form.text_field :query, 
-        class: 'h-full py-2 outline-none px-2 text-gray-400', 
+        class: 'h-full py-2 outline-none px-2 text-gray-400 w-64  sm:w-64 md:w-full lg:w-80 ', 
         data: { action: "input->search-form#search"} %>
   <% end %>
   <span class="material-symbols-outlined">search</span>
