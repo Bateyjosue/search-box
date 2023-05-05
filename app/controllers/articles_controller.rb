@@ -87,6 +87,8 @@ class ArticlesController < ApplicationController
       arr.collect do |search|
         if(search.query.downcase.include?query.downcase or query.downcase.include?search.query.downcase)
           search.update(query: query)
+        else
+          Search.create(query: query, user: search.user, article: search.article)
         end
       end
     end
