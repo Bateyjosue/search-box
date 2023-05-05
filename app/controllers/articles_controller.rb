@@ -3,15 +3,21 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
+    # @searches = Search.group(:query).count
+    @searches = Search.group(:query).count.transform_keys(&:to_s).sort_by { |_query, count| -count }.to_h
+    @top_searches = @searches.first(5).to_h
     if params[:query].present?
       @articles = Article.where("title LIKE ?", "%#{params[:query]}%")
+      @search = Search.all
+      if @articles  or @search
+        @articles.each do |article|
+          search(@search, params[:query])
+        end
+      else
+        Search.create(user: current_user, article: article, query: params[:query])
+      end
     else
       @articles = Article.all
-    end
-    if turbo_frame_request?
-      render partial: "articles", locals: { articles: @articles}
-    else
-      render :index
     end
   end
 
@@ -76,5 +82,12 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :content)
+    end
+    def search(arr, query)
+      arr.collect do |search|
+        if(search.query.downcase.include?query.downcase or query.downcase.include?search.query.downcase)
+          search.update(query: query)
+        end
+      end
     end
 end
