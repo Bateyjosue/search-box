@@ -17,10 +17,11 @@
   width: 100%;
   height: 80%;
   position: fixed;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1;
+
 }
 
 .popup-notication div {
@@ -52,4 +53,11 @@
 .popup-content-alert span {
   font-size: 4rem;
   color: var(--bg-color);
+}
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
 }

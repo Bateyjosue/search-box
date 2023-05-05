@@ -37,7 +37,7 @@
     <main class="box-border">
       <%= yield %>
     </main>
-     <%= javascript_tag do %>
+    <script>
       let closeButton = document.querySelector('.close');
       let menuPopup = document.querySelector('.popup-menu');
       let menuOpen = document.querySelector('#menu-open.menu');
@@ -56,6 +56,6 @@
         notication.classList.add('hide')
       }, 3000);
 
-  <% end %>
+  </script>
   </body>
 </html>
