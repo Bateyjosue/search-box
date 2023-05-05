@@ -6,15 +6,16 @@ class ArticlesController < ApplicationController
     # @searches = Search.group(:query).count
     @searches = Search.group(:query).count.transform_keys(&:to_s).sort_by { |_query, count| -count }.to_h
     @top_searches = @searches.first(5).to_h
+
     if params[:query].present?
       @articles = Article.where("title LIKE ?", "%#{params[:query]}%")
       @search = Search.all
-      if @articles  or @search
-        @articles.each do |article|
-          search(@search, params[:query])
+      if @search.length == 0
+        @articles.map do |article|
+          Search.create(article: article, user: current_user, query: params[:query])
         end
       else
-        Search.create(user: current_user, article: article, query: params[:query])
+        search(@search, params[:query])
       end
     else
       @articles = Article.all
@@ -88,7 +89,8 @@ class ArticlesController < ApplicationController
         if(search.query.downcase.include?query.downcase or query.downcase.include?search.query.downcase)
           search.update(query: query)
         else
-          Search.create(query: query, user: search.user, article: search.article)
+          Search.create(user: current_user, article: search.article, query: params[:query])
+          break
         end
       end
     end

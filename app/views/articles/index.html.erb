@@ -30,21 +30,21 @@
 
 </section>
 <div class="p-8">
-      <h1 class="my-4 flex my-4 text-3xl text-gray-400 uppercase">Search Analytics</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Search Query</th>
-            <th>Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @top_searches.each do |query, count| %>
-            <tr>
-              <td><%= query %></td>
-              <td><%= count %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+  <h1 class="my-4 flex my-4 text-3xl text-gray-400 uppercase">Search Analytics</h1>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>Search Query</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @top_searches.each do |query, count| %>
+        <tr>
+          <td><%= query %></td>
+          <td><%= count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
